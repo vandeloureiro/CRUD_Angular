@@ -1,6 +1,6 @@
-# AngularApp
+# CRUD_Angular
 
-Projeto gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 7.3.9. e banco de dados FireBase
+Projeto de CRUD de funcionários gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 7.3.9. e banco de dados FireBase
 
 ## Development server
 
