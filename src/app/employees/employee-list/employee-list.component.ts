@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material';
 export class EmployeeListComponent implements OnInit {
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['fullName'];
+  displayedColumns: string[] = ['fullName', 'email', 'mobile', 'city', 'actions'];
 
   constructor(private service: EmployeeService) { }
 

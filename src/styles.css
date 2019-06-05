@@ -30,3 +30,12 @@ mat-radio-group mat-radio-button{
 .button-row button{
     margin: 5px;
 }
+
+.hide{
+    display: none;
+}
+
+mat-footer-row mat-footer-cell{
+    justify-content: center;
+    font-style: italic;
+}
