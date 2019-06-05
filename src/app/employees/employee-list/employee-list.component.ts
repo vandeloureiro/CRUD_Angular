@@ -13,6 +13,7 @@ export class EmployeeListComponent implements OnInit {
   displayedColumns: string[] = ['fullName', 'email', 'mobile', 'city', 'actions'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  searchKey: string;
 
   constructor(private service: EmployeeService) { }
 
@@ -29,6 +30,15 @@ export class EmployeeListComponent implements OnInit {
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
       });
+  }
+
+  onSearchClear(){
+    this.searchKey = "";
+    this.applyFilter();
+  }
+
+  applyFilter(){
+    this.listData.filter = this.searchKey.trim().toLowerCase();
   }
 
 }
