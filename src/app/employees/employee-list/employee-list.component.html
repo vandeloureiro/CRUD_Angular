@@ -1,23 +1,23 @@
 <div class="mat-elevation-z8">
-  <mat-table [dataSource]="listData">
+  <mat-table [dataSource]="listData" matSort>
 
     <ng-container matColumnDef="fullName">
-      <mat-header-cell *matHeaderCellDef>Full name</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Full name</mat-header-cell>
       <mat-cell *matCellDef="let element">{{ element.fullName }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
       <mat-cell *matCellDef="let element">{{ element.email }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="mobile">
-      <mat-header-cell *matHeaderCellDef>Mobile</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</mat-header-cell>
       <mat-cell *matCellDef="let element">{{ element.mobile }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="city">
-      <mat-header-cell *matHeaderCellDef>City</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
       <mat-cell *matCellDef="let element">{{ element.city }}</mat-cell>
     </ng-container>
 
@@ -48,4 +48,9 @@
     <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(listData != null && listData.data.length==0)}">
     </mat-footer-row>
   </mat-table>
+
+  <mat-paginator [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 25, 100]" 
+              showFirstLastButtons>
+  </mat-paginator>
 </div>
