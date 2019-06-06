@@ -32,6 +32,11 @@
       <mat-cell *matCellDef="let element">{{ element.city }}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="departamentName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Departament</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.departamentName }}</mat-cell>
+      </ng-container>
+
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let row">
