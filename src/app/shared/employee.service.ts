@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
+import * as _ from "lodash"; 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +21,7 @@ export class EmployeeService {
     city: new FormControl(''),
     gender: new FormControl('1'),
     departament: new FormControl(0),
-    hideDate: new FormControl(''),
+    hireDate: new FormControl(''),
     isPermanent: new FormControl(false)
   });
   
@@ -32,7 +34,7 @@ export class EmployeeService {
       city: '',
       gender: '1',
       departament: 0,
-      hideDate: '',
+      hireDate: '',
       isPermanent: false
     });
   }
@@ -50,7 +52,7 @@ export class EmployeeService {
       city: employee.city,
       gender: employee.gender,
       departament: employee.departament,
-      hideDate: employee.hideDate,
+      hireDate: employee.hireDate,
       isPermanent: employee.isPermanent
     });
   }
@@ -64,13 +66,17 @@ export class EmployeeService {
         city: employee.city,
         gender: employee.gender,
         departament: employee.departament,
-        hideDate: employee.hideDate,
+        hireDate: employee.hireDate,
         isPermanent: employee.isPermanent
       });
   }
 
   deleteEmployee($key: string){
     this.employeeList.remove($key);
+  }
+
+  populateForm(employee){
+    this.form.setValue(_.omit(employee, 'departamentName'));
   }
   
 }
