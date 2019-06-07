@@ -17,4 +17,5 @@ export class NotificationService {
   success(msg){
     this.snackBar.open(msg, '', this.config);
   }
+
 }

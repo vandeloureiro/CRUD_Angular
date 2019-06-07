@@ -3,6 +3,7 @@ import { EmployeeService } from 'src/app/shared/employee.service';
 import { MatTableDataSource, MatSort, MatPaginator, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { DepartamentService } from 'src/app/shared/departament.service';
 import { EmployeeComponent } from '../employee/employee.component';
+import { NotificationService } from 'src/app/shared/notification.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -19,7 +20,8 @@ export class EmployeeListComponent implements OnInit {
 
   constructor(private service: EmployeeService, 
     private departamentService: DepartamentService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private notification: NotificationService) { }
 
   ngOnInit() {
     this.service.getEmployees().subscribe(
@@ -68,6 +70,13 @@ export class EmployeeListComponent implements OnInit {
     dialogConfig.autoFocus = true
     dialogConfig.width = "60%";
     this.dialog.open(EmployeeComponent, dialogConfig);
+  }
+
+  onDelete($key){
+    if(confirm('Are you sure to delete this record?')){
+      this.service.deleteEmployee($key);
+      this.notification.success('Deleted successfully!');
+    }
   }
 
 }
